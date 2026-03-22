@@ -4,7 +4,7 @@
 
 It streams agent status, task progress, and event updates over **SSE** and **WebSocket**, and can read live state directly from local `~/.claude/teams` and `~/.claude/tasks` files.
 
-Built for developers who want a lightweight **Claude Code dashboard**, **multi-agent monitor**, and **real-time task viewer** without adding heavy frontend or backend dependencies.
+Built for developers who want a lightweight **Claude Code dashboard**, **multi-agent monitor**, **agent task dashboard**, and **real-time task viewer** without adding heavy frontend or backend dependencies.
 
 ## Why this repository
 
@@ -15,6 +15,14 @@ This project is useful if you want to:
 - expose the same dashboard state through REST, SSE, and WebSocket
 - run a lightweight Go dashboard with a vanilla JS frontend
 - extend persistence or event fan-out with Redis, PostgreSQL, or NATS
+
+## Use cases
+
+- **Claude Code team monitoring** — watch active agents, leaders, and assigned work in one dashboard
+- **Task flow visualization** — track pending, running, blocked, and completed work across teams
+- **Realtime event streaming** — consume the same state updates from browser UI, SSE clients, or WebSocket clients
+- **Local development and demos** — run with live Claude local files or fall back to simulation mode
+- **Backend experimentation** — use the project as a reference for Go SSE/WebSocket dashboards and multi-agent monitoring
 
 ## Features
 
@@ -29,9 +37,17 @@ This project is useful if you want to:
 
 ## Keywords
 
-Claude Code dashboard, Claude Code monitor, multi-agent dashboard, multi-agent task dashboard, real-time agent dashboard, Go dashboard, SSE dashboard, WebSocket dashboard, team task monitor, agent progress tracker.
+Claude Code dashboard, Claude Code monitor, Claude team dashboard, Claude task dashboard, multi-agent dashboard, multi-agent task dashboard, real-time agent dashboard, Go dashboard, SSE dashboard, WebSocket dashboard, team task monitor, agent progress tracker, task flow monitor.
 
 ## Quick Start
+
+### What you get
+
+- browser dashboard for Claude Code teams and tasks
+- `/api/state` snapshot endpoint
+- `/api/events` SSE stream
+- `/ws` WebSocket realtime channel
+- automatic fallback to simulation mode when Claude local files are unavailable
 
 ### Prerequisites
 
@@ -122,6 +138,13 @@ dashboard/
 | `/api/state` | GET | Returns the full `DashboardState` JSON snapshot |
 | `/api/events` | GET (SSE) | Streams `snapshot`, `update`, and `heartbeat` events as `StreamEnvelope` |
 | `/ws` | WebSocket | Bidirectional: server pushes same envelopes, client sends commands and receives acks |
+
+## Why it is easy to integrate
+
+- one shared state model for browser, SSE, and WebSocket consumers
+- no heavy frontend framework required
+- simple local-file integration with Claude Code runtime data
+- optional Redis, PostgreSQL, and NATS support for extension experiments
 
 See [docs/API.md](docs/API.md) for the complete API reference with request/response examples.
 
