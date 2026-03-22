@@ -1,8 +1,20 @@
-# Go Real-Time Multi-Agent Dashboard
+# Claude Code Dashboard
 
-**多智能体实时监控仪表盘** — A lightweight Go server that streams simulated (or real) multi-agent task progress to a browser UI over SSE and WebSocket.
+**Claude Code Dashboard** is a real-time multi-agent dashboard built with Go for visualizing Claude Code team and task activity in the browser.
 
-Built to visualize [Claude Code](https://claude.ai/code) multi-agent team sessions in real time, with pluggable persistence and transport backends.
+It streams agent status, task progress, and event updates over **SSE** and **WebSocket**, and can read live state directly from local `~/.claude/teams` and `~/.claude/tasks` files.
+
+Built for developers who want a lightweight **Claude Code dashboard**, **multi-agent monitor**, and **real-time task viewer** without adding heavy frontend or backend dependencies.
+
+## Why this repository
+
+This project is useful if you want to:
+
+- monitor Claude Code multi-agent sessions in real time
+- inspect team/task state from local Claude runtime files
+- expose the same dashboard state through REST, SSE, and WebSocket
+- run a lightweight Go dashboard with a vanilla JS frontend
+- extend persistence or event fan-out with Redis, PostgreSQL, or NATS
 
 ## Features
 
@@ -14,6 +26,10 @@ Built to visualize [Claude Code](https://claude.ai/code) multi-agent team sessio
 - Unified `StreamEnvelope` protocol across all transports
 - Bidirectional WebSocket commands with ack/reject/ignore responses
 - Simulation mode with auto-advancing task progress for demo/development
+
+## Keywords
+
+Claude Code dashboard, Claude Code monitor, multi-agent dashboard, multi-agent task dashboard, real-time agent dashboard, Go dashboard, SSE dashboard, WebSocket dashboard, team task monitor, agent progress tracker.
 
 ## Quick Start
 
