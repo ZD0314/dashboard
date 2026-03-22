@@ -1,5 +1,10 @@
 # Claude Code Dashboard
 
+![Go](https://img.shields.io/badge/Go-1.21%2B-00ADD8?logo=go&logoColor=white)
+![Realtime](https://img.shields.io/badge/realtime-SSE%20%2F%20WebSocket-0A7EA4)
+![Frontend](https://img.shields.io/badge/frontend-vanilla%20JS-F7DF1E?logo=javascript&logoColor=black)
+![Backend](https://img.shields.io/badge/backend-Go-00ADD8?logo=go&logoColor=white)
+
 **Claude Code Dashboard** is a real-time multi-agent dashboard built with Go for visualizing Claude Code team and task activity in the browser.
 
 It streams agent status, task progress, and event updates over **SSE** and **WebSocket**, and can read live state directly from local `~/.claude/teams` and `~/.claude/tasks` files.
@@ -23,6 +28,23 @@ This project is useful if you want to:
 - **Realtime event streaming** — consume the same state updates from browser UI, SSE clients, or WebSocket clients
 - **Local development and demos** — run with live Claude local files or fall back to simulation mode
 - **Backend experimentation** — use the project as a reference for Go SSE/WebSocket dashboards and multi-agent monitoring
+
+## Highlights
+
+- lightweight Go backend with no heavy framework requirements
+- browser UI for agents, tasks, team grouping, and event flow
+- realtime transport support through both SSE and WebSocket
+- live Claude local runtime integration with simulation fallback
+- easy to extend with Redis, PostgreSQL, and NATS adapters
+
+## Screenshots
+
+> Add one or two dashboard screenshots here to improve GitHub click-through and first impression.
+>
+> Suggested filenames:
+>
+> - `docs/screenshots/dashboard-overview.png`
+> - `docs/screenshots/team-expanded-view.png`
 
 ## Features
 
