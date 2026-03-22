@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agent Dashboard</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Realtime collaboration</p>
+        <h1>Agent Dashboard</h1>
+        <p class="topbar-note" id="data-source-note">同步自 Claude team/task 文件 — 实时状态</p>
+      </div>
+      <div class="topbar-status">
+        <span class="status-dot" id="connection-dot"></span>
+        <span id="connection-text">正在初始化</span>
+      </div>
+    </header>
+
+    <main class="dashboard-grid">
+      <aside class="panel panel-agents">
+        <div class="panel-header">
+          <h2>Agents</h2>
+          <span class="badge" id="agent-count">0</span>
+        </div>
+        <div id="agent-list" class="agent-list empty-state">暂无 agent 数据</div>
+      </aside>
+
+      <section class="panel panel-task">
+        <div class="panel-header panel-header-task">
+          <div>
+            <h2 id="task-heading">当前任务</h2>
+            <p class="panel-subtitle" id="task-subtitle">未选中 agent 时显示全局任务视图</p>
+          </div>
+          <span class="badge" id="task-status">等待中</span>
+        </div>
+        <div id="task-card" class="task-card empty-state">暂无任务数据</div>
+      </section>
+
+      <aside class="panel panel-stream">
+        <div class="panel-header">
+          <h2>消息 / 日志流</h2>
+          <span class="badge" id="event-count">0</span>
+        </div>
+        <div id="event-stream" class="event-stream empty-state">等待事件流连接</div>
+      </aside>
+    </main>
+
+    <footer class="panel progress-panel">
+      <div class="panel-header">
+        <h2>总进度</h2>
+        <span id="progress-text">0%</span>
+      </div>
+      <div class="progress-meta">
+        <span id="progress-summary">等待状态同步</span>
+        <span id="updated-at">未更新</span>
+      </div>
+      <div class="progress-track" aria-label="总进度条">
+        <div id="progress-bar" class="progress-bar"></div>
+      </div>
+    </footer>
+  </div>
+
+  <template id="agent-item-template">
+    <article class="agent-item" tabindex="0" role="button" aria-pressed="false">
+      <div class="agent-topline">
+        <div>
+          <h3 class="agent-name"></h3>
+          <p class="agent-role"></p>
+        </div>
+        <span class="agent-state"></span>
+      </div>
+      <p class="agent-task"></p>
+      <div class="agent-metrics">
+        <span class="agent-progress"></span>
+        <span class="agent-updated"></span>
+      </div>
+    </article>
+  </template>
+
+  <template id="event-item-template">
+    <article class="event-item">
+      <div class="event-meta">
+        <span class="event-type"></span>
+        <span class="event-time"></span>
+      </div>
+      <p class="event-message"></p>
+    </article>
+  </template>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>
