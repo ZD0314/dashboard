@@ -1,0 +1,22 @@
+.claude/
+
+# Build outputs
+/dashboard
+/*.exe
+/*.exe~
+/*.dll
+/*.so
+/*.dylib
+/*.test
+/*.out
+
+# Coverage and profiling
+coverage.out
+*.coverprofile
+*.pprof
+
+# Editor / OS files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
